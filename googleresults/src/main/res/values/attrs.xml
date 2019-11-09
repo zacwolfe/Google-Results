@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GoogleSearchResultView">
+        <!-- Default top text color -->
+        <attr name="colorLinkText" format="color" />
+        <!-- Default Middle text color -->
+        <attr name="colorTitleText" format="color" />
+        <!-- Default Bottom text color -->
+        <attr name="colorSnippetText" format="color" />
+
+        <!-- Top text size -->
+        <attr name="sizeLinkText" format="dimension" />
+        <!-- Middle text size -->
+        <attr name="sizeTitleText" format="dimension" />
+        <!-- Bottom text size -->
+        <attr name="sizeSnippetText" format="dimension" />
+
+        <attr name="cardBackground" format="reference" />
+
+        <attr name="maxResults" format="integer" />
+        <attr name="searchQuery" format="string" />
+
+    </declare-styleable>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="font_green">#00a34c</color>
+    <color name="font_light_gray">#dadada</color>
+    <color name="font_gray">#b9b9b9</color>
+    <color name="font_slightly_darker_gray">#b1b1b1</color>
+    <color name="font_red">#F24841</color>
+    <color name="font_lighter_dark_gray">#929292</color>
+    <color name="font_dark_gray">#808080</color>
+    <color name="font_medium_dark_gray">#666666</color>
+    <color name="font_another_darker_gray">#424242</color>
+    <color name="font_somewhat_darker_gray">#4d4d4d</color>
+    <color name="font_darker_gray">#4a4a4a</color>
+    <color name="font_even_darker_gray">#4F3107</color>
+    <color name="font_very_dark_gray">#333333</color>
+    <color name="font_black">#ff000000</color>
+</resources>
