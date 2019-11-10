@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GoogleSearchTask extends AsyncTask<Void, Integer, GoogleSearchResults> {
-    private final static String TAG = "ThunderheadSearchTask";
+    private final static String TAG = "GoogleSearchTask";
     private final static int READ_TIMEOUT_MILLIS = 10000;
     private final static int CONNECT_TIMEOUT_MILLIS = 20000;
 
@@ -58,6 +58,7 @@ public class GoogleSearchTask extends AsyncTask<Void, Integer, GoogleSearchResul
             List<Result> resultList = new ArrayList<>();
             long currentStart = 1;
 
+            /* keeping going until desired # of results is reached */
             while (resultList.size() < numResults) {
                 list.setNum(Math.min(10L, numResults - resultList.size()));
                 list.setStart(currentStart);
@@ -68,6 +69,7 @@ public class GoogleSearchTask extends AsyncTask<Void, Integer, GoogleSearchResul
                     currentStart += items.size();
                 }
 
+                /* google search api won't allow more than 100 results for 1 query */
                 if (items == null || items.size() < 10 || currentStart >= 100) {
                     break;
                 }

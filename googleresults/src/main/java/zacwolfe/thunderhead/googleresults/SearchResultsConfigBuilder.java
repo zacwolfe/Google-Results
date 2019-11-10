@@ -6,14 +6,14 @@ import zacwolfe.thunderhead.googleresults.model.SearchResultsConfig;
 
 public class SearchResultsConfigBuilder {
 
-    public static final float DEFAULT_SIZE_TEXT_LINK = 14f;
-    public static final float DEFAULT_SIZE_TEXT_TITLE = 16f;
-    public static final float DEFAULT_SIZE_TEXT_SNIPPET = 12f;
-    public final static int DEFAULT_LINK_COLOR = R.color.font_dark_gray;
-    public final static int DEFAULT_TITLE_COLOR = R.color.font_black;
-    public final static int DEFAULT_SNIPPET_COLOR = R.color.font_medium_dark_gray;
-    public final static String DEFAULT_SEARCH_QUERY = "Thunderhead ONE";
-    public final static int DEFAULT_MAX_RESULTS = 10;
+    static final float DEFAULT_SIZE_TEXT_LINK = 14f;
+    static final float DEFAULT_SIZE_TEXT_TITLE = 16f;
+    static final float DEFAULT_SIZE_TEXT_SNIPPET = 12f;
+    final static int DEFAULT_LINK_COLOR = R.color.font_dark_gray;
+    final static int DEFAULT_TITLE_COLOR = R.color.font_black;
+    final static int DEFAULT_SNIPPET_COLOR = R.color.font_medium_dark_gray;
+    final static String DEFAULT_SEARCH_QUERY = "Thunderhead ONE";
+    final static int DEFAULT_MAX_RESULTS = 10;
 
 
     /* Font Size, Color and Background */

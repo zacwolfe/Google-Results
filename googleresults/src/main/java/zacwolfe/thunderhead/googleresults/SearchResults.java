@@ -23,7 +23,7 @@ public final class SearchResults {
 
     private final static String TAG = "SearchResults";
 
-    SearchResultListener resultListener;
+    private SearchResultListener resultListener;
     private SearchResultsView resultsView;
     private SearchResultsAdapter searchResultsAdapter;
 
@@ -35,13 +35,13 @@ public final class SearchResults {
     /**
      * Package Private Constructor to insure SearchResults can't be initiated the default way
      */
-    SearchResults(Builder builder, SearchResultsConfig config) {
+    private SearchResults(Builder builder, SearchResultsConfig config) {
         this.viewId = builder.viewId;
         this.config = config;
     }
 
     /* Init Results View */
-    void init(View rootView, String googleApiKey, String searchEngineId) {
+    private void init(View rootView, String googleApiKey, String searchEngineId) {
         resultsView = rootView.findViewById(viewId);
         resultsView.setHasFixedSize(true);
         resultsView.setHorizontalScrollBarEnabled(false);
@@ -50,20 +50,6 @@ public final class SearchResults {
         resultsView.addOnScrollListener(new ResultsScrollListener());
 
         GoogleSearchTask task = new GoogleSearchTask(results -> {
-            if (results.getError() != null) {
-                Log.i(TAG, "Dude we got an error!", results.getError());
-            } else {
-                Log.i(TAG, "Dude we got "+ results.getResults().size() + " results!");
-            }
-
-            for (Result r : results.getResults()) {
-                try {
-                    Log.i(TAG, r.toPrettyString());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
             setGoogleSearchResults(results);
             searchResultsAdapter = new SearchResultsAdapter(this, getContext());
             resultsView.setAdapter(searchResultsAdapter);
@@ -89,16 +75,6 @@ public final class SearchResults {
     }
 
 
-    public void post(Runnable runnable) {
-        resultsView.post(runnable);
-    }
-
-    @TargetApi(21)
-    public void setElevation(float elevation) {
-        resultsView.setElevation(elevation);
-    }
-
-
     public SearchResultsView getSearchResultsView() {
         return resultsView;
     }
@@ -106,7 +82,6 @@ public final class SearchResults {
     public Context getContext() {
         return resultsView.getContext();
     }
-
 
 
     public SearchResultsConfig getConfig() {
