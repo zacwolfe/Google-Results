@@ -3,7 +3,6 @@ package zac.wolfe.thunderhead.sample;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,6 +15,9 @@ import zacwolfe.thunderhead.googleresults.utils.SearchResultListener;
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "MainActivity";
 
+    private final static String GOOGLE_API_KEY = "AIzaSyDsAn3q2vTIN_1UdiAUJepKo9oK3ndXDOk";
+    private final static String SEARCH_ENGINE_ID = "003466369684162506734:2l0ykpzw188";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         SearchResults searchResults = new SearchResults.Builder(this, R.id.searchResultsView)
             .configure()
-                .colorSnippetText(ContextCompat.getColor(this, R.color.font_dark_gray))
                 .end()
+            .setGoogleApiKey(GOOGLE_API_KEY)
+            .setSearchEngineId(SEARCH_ENGINE_ID)
             .build();
 
 

@@ -40,16 +40,14 @@ public final class SearchResults {
         this.config = config;
     }
 
-    /* Init Calendar View */
-    void init(View rootView) {
+    /* Init Results View */
+    void init(View rootView, String googleApiKey, String searchEngineId) {
         resultsView = rootView.findViewById(viewId);
         resultsView.setHasFixedSize(true);
         resultsView.setHorizontalScrollBarEnabled(false);
         resultsView.applyConfigFromLayout(this);
         resultsView.setLayoutManager(new LinearLayoutManager(getContext()));
         resultsView.addOnScrollListener(new ResultsScrollListener());
-
-//        post(() -> centerToPositionWithNoAnimation(positionOfDate(defaultSelectedDate)));
 
         GoogleSearchTask task = new GoogleSearchTask(results -> {
             if (results.getError() != null) {
@@ -69,10 +67,9 @@ public final class SearchResults {
             setGoogleSearchResults(results);
             searchResultsAdapter = new SearchResultsAdapter(this, getContext());
             resultsView.setAdapter(searchResultsAdapter);
-        }, config.getMaxResults(), config.getSearchQuery());
+        }, googleApiKey, searchEngineId, config.getMaxResults(), config.getSearchQuery());
 
         task.execute();
-
     }
 
     public SearchResultListener getResultListener() {
@@ -121,6 +118,8 @@ public final class SearchResults {
 
         final int viewId;
         final View rootView;
+        private String googleApiKey;
+        private String searchEngineId;
 
         private SearchResultsConfigBuilder configBuilder;
 
@@ -150,7 +149,15 @@ public final class SearchResults {
             return configBuilder;
         }
 
+        public Builder setGoogleApiKey(String googleApiKey) {
+            this.googleApiKey = googleApiKey;
+            return this;
+        }
 
+        public Builder setSearchEngineId(String searchEngineId) {
+            this.searchEngineId = searchEngineId;
+            return this;
+        }
 
 
         /**
@@ -164,7 +171,7 @@ public final class SearchResults {
             SearchResultsConfig config = configBuilder.createConfig();
 
             SearchResults searchResults = new SearchResults(this, config);
-            searchResults.init(rootView);
+            searchResults.init(rootView, googleApiKey, searchEngineId);
             return searchResults;
         }
     }

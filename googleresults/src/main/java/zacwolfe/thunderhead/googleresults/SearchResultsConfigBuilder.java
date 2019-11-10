@@ -16,8 +16,6 @@ public class SearchResultsConfigBuilder {
     public final static int DEFAULT_MAX_RESULTS = 10;
 
 
-
-
     /* Font Size, Color and Background */
     private float sizeLinkText;
     private float sizeTitleText;
@@ -30,6 +28,7 @@ public class SearchResultsConfigBuilder {
 
     private int maxResults;
     private String searchQuery;
+
     private SearchResults.Builder builder;
 
     SearchResultsConfigBuilder(SearchResults.Builder builder) {

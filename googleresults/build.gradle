@@ -5,13 +5,13 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'zw-google-results'
 
-    publishedGroupId = 'zacwolfe.thunderhead.googleresults'
+    publishedGroupId = 'zac.zacwolfe.thunderhead.zac.zacwolfe.thunderhead.googleresults'
     libraryName = 'Google Results'
     artifact = 'zacwolfe.thunderhead.googleresultslibrary'
 
     libraryDescription = 'A RecyclerView-derived widget that displays a list of Google search results'
 
-    siteUrl = 'https://github.com/zacwolfe/Google-Results.git'
+    siteUrl = 'https://github.com/zacwolfe/Google-Results'
     gitUrl = 'https://github.com/zacwolfe/Google-Results.git'
 
     libraryVersion = '1.0.0'
@@ -83,3 +83,38 @@ artifacts {
     archives javadocJar
     archives sourcesJar
 }
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        publish = true
+        publicDownloadNumbers = true
+        override = true
+
+        version {
+            desc = libraryDescription
+            name = libraryVersion
+            vcsTag = 'v' + libraryVersion
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = properties.getProperty("bintray.gpg.password")
+                //Optional. The passphrase for GPG signing'
+            }
+        }
+    }
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'

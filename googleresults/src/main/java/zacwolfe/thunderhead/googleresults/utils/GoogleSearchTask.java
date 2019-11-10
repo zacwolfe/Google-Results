@@ -16,8 +16,6 @@ import java.util.List;
 
 public class GoogleSearchTask extends AsyncTask<Void, Integer, GoogleSearchResults> {
     private final static String TAG = "ThunderheadSearchTask";
-    private final static String GOOGLE_API_KEY = "AIzaSyDsAn3q2vTIN_1UdiAUJepKo9oK3ndXDOk";
-    private final static String SEARCH_ENGINE_ID = "003466369684162506734:2l0ykpzw188";
     private final static int READ_TIMEOUT_MILLIS = 10000;
     private final static int CONNECT_TIMEOUT_MILLIS = 20000;
 
@@ -25,9 +23,13 @@ public class GoogleSearchTask extends AsyncTask<Void, Integer, GoogleSearchResul
     private final OnResultsListener resultsListener;
     private int numResults;
     private String searchQuery;
+    private String googleApiKey;
+    private String searchEngineId;
 
-    public GoogleSearchTask(OnResultsListener resultsListener, int numResults, String searchQuery) {
+    public GoogleSearchTask(OnResultsListener resultsListener, String googleApiKey, String searchEngineId, int numResults, String searchQuery) {
         this.resultsListener = resultsListener;
+        this.googleApiKey = googleApiKey;
+        this.searchEngineId = searchEngineId;
         this.numResults = numResults;
         this.searchQuery = searchQuery;
     }
@@ -50,8 +52,8 @@ public class GoogleSearchTask extends AsyncTask<Void, Integer, GoogleSearchResul
             });
 
             Customsearch.Cse.List list = customsearch.cse().list(searchQuery);
-            list.setKey(GOOGLE_API_KEY);
-            list.setCx(SEARCH_ENGINE_ID);
+            list.setKey(googleApiKey);
+            list.setCx(searchEngineId);
 
             List<Result> resultList = new ArrayList<>();
             long currentStart = 1;

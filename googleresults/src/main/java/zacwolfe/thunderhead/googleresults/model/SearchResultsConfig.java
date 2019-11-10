@@ -148,7 +148,5 @@ public class SearchResultsConfig {
         if (maxResults <= 0) {
             maxResults = defaultConfig.maxResults;
         }
-
-
     }
 }

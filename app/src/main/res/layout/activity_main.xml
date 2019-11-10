@@ -30,8 +30,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/appBar"
         app:cardBackground="@android:color/white"
-        app:maxResults="15"
-        app:searchQuery="Thunderhead ONE"/>
+        app:sizeLinkText="14sp"
+        app:colorLinkText="@color/font_lighter_dark_gray"
+        app:sizeTitleText="20sp"
+        app:colorTitleText="@color/font_green"
+        app:sizeSnippetText="12sp"
+        app:colorSnippetText="@color/font_red"
+        app:maxResults="30"
+        app:searchQuery="Blobfish"/>
 
 
 </RelativeLayout>
