@@ -9,7 +9,7 @@ A configurable `RecyclerView`-derived widget that displays a list of Google sear
 
 ## Installation
 
-(If this were a real libaray, it would be) hosted on jcenter, add this to your **build.gradle**:
+(If this were a real library, it would be) hosted on jcenter, add this to your **build.gradle**:
 
 ```gradle
 repositories {
@@ -107,10 +107,10 @@ searchResults.setResultListener(new SearchResultListener() {
 
 ## Error Handling
 
-- As you might expect, as this is merely a demonstration and not meant to be a polished production-ready component, there isn't a huge amount of error handling built in at the moment. However, it was developed with robustness and efficiency in mind, employing best practices such as using `try/catch/finally` where appropriate, proper logging of errors (no `e.printStackTrace()`), not doing unneccessary work on the main thread, etc. The component will attempt to surface search API-related errors to the user, as shown in the following screenshot. **Of course, the associated messaging would need to be further formatted and simplified (showing JSON to the end user is generally not an accepted practice) :-)**:
+- As you might expect, as this is merely a demonstration and not meant to be a polished production-ready component, there isn't a huge amount of error handling built in at the moment. However, it was developed with robustness and efficiency in mind, employing best practices such as using `try/catch/finally` where appropriate, proper logging of errors (no `e.printStackTrace()`), not doing unneccessary work on the main thread, etc. The component will attempt to surface search API-related errors to the user, as shown in the following screenshot. **Of course, the associated messaging would need to be further formatted and simplified (I fully realize that showing JSON to the end user is generally not an accepted practice) :-)**:
 
 <p align="center">
-<img src="./art/error_example1.png" alt="drawing" width="400"/>
+<img src="./art/error_example.png" alt="drawing" width="400"/>
 </p>
 
 ## Notes, TODO and Caveats:
