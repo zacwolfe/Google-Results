@@ -57,7 +57,7 @@ SearchResults searchResults = new SearchResults.Builder(this, R.id.searchResults
 
 - The widget's search capabilities are powered by the [Google Custom Search API](https://developers.google.com/custom-search/docs/overview) and therefore require a valid Google API Key and Search Engine ID, as seen in the above example. A search result consists of a _Link_, _Title_, _Snippet_, and optionally an _Image_. The _Link_ is simply a formatted URL associated with the search result, the _Title_ is just what it sounds like, the _Snippet_ is a short summary describing the content of the referenced page, and the _Image_ is (unsurprisingly) an image pulled from that page, usually corresponding to an `og:image` metadata value.
 
-- A number of text display attributes are configurable. Here's an XML example demonstrating all of them:
+- A number of text display attributes are configurable. Here's an XML example demonstrating all of them (of course the same attributes can be set/overridden in code):
 
 ```xml
 <zacwolfe.thunderhead.googleresults.SearchResultsView
@@ -76,7 +76,7 @@ SearchResults searchResults = new SearchResults.Builder(this, R.id.searchResults
     app:searchQuery="Blobfish"/>
 ```
 
-- Of course the same attributes can be set/overridden in code. Here is the result:
+- Here is the result of the above configuration:
 
 <p align="center">
 <img src="./art/example_blobfish_search.png" alt="drawing" width="400"/>
