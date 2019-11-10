@@ -42,7 +42,7 @@ The minimum API level supported by this library is **API 14 (ICE_CREAM_SANDWICH)
 </android.support.design.widget.AppBarLayout>
 ```
 
-- You may also configure the widget the same attributes during construction in your **Activity**, via a convenient and familiar builder pattern:
+- You may also configure the widget with the same attributes during construction in your **Activity**, via a convenient and familiar builder pattern:
 
 ```java
 SearchResults searchResults = new SearchResults.Builder(this, R.id.searchResultsView)
@@ -55,7 +55,7 @@ SearchResults searchResults = new SearchResults.Builder(this, R.id.searchResults
     .build();
 ```
 
-- The widget's search capabilities are powered by the [Google Custom Search API](https://developers.google.com/custom-search/docs/overview) and therefore requires a valid Google API Key and Search Engine ID, as seen in the above example. A search result consists of a _Link_, _Title_, _Snippet_, and optionally an _Image_. The _Link_ is simply a formatted URL associated with the search result, the _Title_ is just what it sounds like, the _Snippet_ is a short summary describing the content of the referenced page, and the _Image_ is unsurprisingly an image pulled from that page, usually corresponding to an `og:image` metadata value.
+- The widget's search capabilities are powered by the [Google Custom Search API](https://developers.google.com/custom-search/docs/overview) and therefore require a valid Google API Key and Search Engine ID, as seen in the above example. A search result consists of a _Link_, _Title_, _Snippet_, and optionally an _Image_. The _Link_ is simply a formatted URL associated with the search result, the _Title_ is just what it sounds like, the _Snippet_ is a short summary describing the content of the referenced page, and the _Image_ is (unsurprisingly) an image pulled from that page, usually corresponding to an `og:image` metadata value.
 
 - A number of text display attributes are configurable. Here's an XML example demonstrating all of them:
 
@@ -98,8 +98,6 @@ searchResults.setResultListener(new SearchResultListener() {
     public void onResultLongPress(String url, int position) {
         Log.i(TAG, "Long pressed " + url);
     }
-
-
 });
 ```
 
