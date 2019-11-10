@@ -105,6 +105,14 @@ searchResults.setResultListener(new SearchResultListener() {
 
 - Included in the project is a sample app that demonstrates the basic features of the app (the above screenshots were captured from it). The relevant files include `MainActivity.java` (the code) and `activity_main.xml` (the layout). The app can be launched from within **Android Studio** by simply running `MainActivity` with either an emulator or physical device attached.
 
+## Error Handling
+
+- As you might expect, as this is merely a demonstration and not meant to be a polished production-ready component, there isn't a huge amount of error handling built in at the moment. However, it was developed with robustness and efficiency in mind, employing best practices such as using `try/catch/finally` where appropriate, proper logging of errors (no `e.printStackTrace()`), not doing unneccessary work on the main thread, etc. The component will attempt to surface search API-related errors to the user, as shown in the following screenshot. **Of course, the associated messaging would need to be further formatted and simplified (showing JSON to the end user is generally not an accepted practice) :-)**:
+
+<p align="center">
+<img src="./art/error_example1.png" alt="drawing" width="400"/>
+</p>
+
 ## Notes, TODO and Caveats:
 
 - There is currently no way to trigger a re-query. An obvious feature would be to support a pull-down style refresh action, something that is idiomatic to both Android and iOS
